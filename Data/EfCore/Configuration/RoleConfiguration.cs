@@ -18,16 +18,19 @@ namespace Data.EfCore.Configuration
             {
                 Id = 1,
                 Name = RoleValues.Admin,
+                NormalizedName = RoleValues.Admin.ToUpper()
             });
             builder.HasData(new Role()
             {
                 Id = 2,
-                Name = RoleValues.Mod
+                Name = RoleValues.Mod,
+                NormalizedName = RoleValues.Mod.ToUpper()
             });
             builder.HasData(new Role()
             {
                 Id = 3,
-                Name = RoleValues.View
+                Name = RoleValues.View,
+                NormalizedName = RoleValues.View.ToUpper()
             });
 
         }

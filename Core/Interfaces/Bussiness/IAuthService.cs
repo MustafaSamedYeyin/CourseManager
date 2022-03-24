@@ -12,7 +12,7 @@ namespace Core.Interfaces.Bussiness
     {
         Task<string> LoginAsync(LoginDto loginDto, string secret, string issuer, string audience);
         Task<bool> RegisterAsync(RegisterDto registerDto);
-        Task<bool> ChechUserExixstAsync(string Email);
-        Task<GetUserDto> GetUserByEmailAsync(string Email);
+        Task<bool> ChechUserExixstAsync(LoginDto loginDto);
+        //Task<GetUserDto> GetUserByEmailAsync(string Email);
     }
 }

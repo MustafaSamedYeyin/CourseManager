@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,13 +16,14 @@ namespace Data.EfCore.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@$"Data Source={Process.GetCurrentProcess().MainModule.FileName}\mydb.db;Version=3;");
+            optionsBuilder.UseSqlServer(@"Server =(localdb)\mssqllocaldb; Database = CourseManagerMustafaSamedYeyin; Trusted_Connection = True;");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new CourseConfiguration());
             builder.ApplyConfiguration(new UserCourseConfiguration());
+            builder.ApplyConfiguration(new RoleConfiguration());
             base.OnModelCreating(builder);
         }
         public DbSet<Course> Courses { get; set; }
